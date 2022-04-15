@@ -1,0 +1,386 @@
+.\" Man page generated from reStructuredText.
+.
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.TH "REC_CONTROL" "1" "Mar 30, 2022" "" "PowerDNS Recursor"
+.SH NAME
+rec_control \- Command line tool to control a running Recursor
+.SH SYNOPSIS
+.sp
+\fBrec_control\fP [\fIOPTION\fP]... \fICOMMAND\fP [\fICOMMAND\-OPTION\fP]...
+.SH DESCRIPTION
+.sp
+\fBrec_control\fP allows the operator to query and control a running
+instance of the PowerDNS Recursor.
+.sp
+\fBrec_control\fP talks to the recursor via a the \(aqcontrolsocket\(aq. Which
+is usually located in \fB/var/run\fP . The \fI\-\-socket\-dir\fP or the \fI\-\-config\-dir\fP
+and \fI\-\-config\-name\fP switches control to which process \fBrec_control\fP
+connects.
+.SH EXAMPLES
+.sp
+To see if the Recursor is alive, run:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# rec_control ping
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+To stop the recursor by hand, run:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# rec_control quit
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+To dump the cache to disk, execute:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# rec_control dump\-cache /tmp/the\-cache
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+Before version 4.5.0, for each command that writes to a file, \fBpdns_recursor\fP would open the file to write to.
+Starting with 4.5.0, the files are opened by the \fBrec_control\fP command itself using the credentials and the current working directory of the user running \fBrec_control\fP\&.
+A single minus \fI\-\fP can be used as a filename to write the data to the standard output stream.
+.UNINDENT
+.UNINDENT
+.SH OPTIONS
+.INDENT 0.0
+.TP
+.B  \-\-help
+provide this helpful message.
+.TP
+.BI \-\-config\-dir\fB= <path>
+Directory where the recursor.conf lives.
+.TP
+.BI \-\-config\-name\fB= <name>
+Name of the virtual configuration.
+.TP
+.BI \-\-socket\-dir\fB= <path>
+Where the controlsocket will live, please
+use \fB\-\-config\-dir\fP instead.
+.TP
+.BI \-\-socket\-pid\fB= <pid>
+When running in SMP mode, pid of \fBpdns_recursor\fP to
+control.
+.TP
+.BI \-\-timeout\fB= <num>
+Number of seconds to wait for the remote PowerDNS
+Recursor to respond.
+.UNINDENT
+.SH COMMANDS
+.INDENT 0.0
+.TP
+.B add\-dont\-throttle\-names NAME [NAME...]
+Add names for nameserver domains that may not be throttled.
+.TP
+.B add\-dont\-throttle\-netmasks NETMASK [NETMASK...]
+Add netmasks for nameservers that may not be throttled.
+.TP
+.B add\-nta \fIDOMAIN\fP [\fIREASON\fP]
+Add a Negative Trust Anchor for \fIDOMAIN\fP, suffixed optionally with
+\fIREASON\fP\&.
+.TP
+.B add\-ta \fIDOMAIN\fP \fIDSRECORD\fP
+Add a Trust Anchor for \fIDOMAIN\fP with DS record data \fIDSRECORD\fP\&. This adds
+the new Trust Anchor to the existing set of Trust Anchors for \fIDOMAIN\fP\&.
+.TP
+.B current\-queries
+Shows the currently active queries.
+.TP
+.B clear\-dont\-throttle\-names NAME [NAME...]
+Remove names that are not allowed to be throttled. If \fINAME\fP is \(aq*\(aq, remove all
+.TP
+.B clear\-dont\-throttle\-netmasks NETMASK [NETMASK...]
+Remove netmasks that are not allowed to be throttled. If \fINETMASK\fP is \(aq*\(aq, remove all
+.TP
+.B clear\-nta \fIDOMAIN\fP\&...
+Remove Negative Trust Anchor for one or more \fIDOMAIN\fPs. Set domain to
+\(aq*\(aq to remove all NTA\(aqs.
+.TP
+.B clear\-ta [\fIDOMAIN\fP]...
+Remove Trust Anchor for one or more \fIDOMAIN\fPs. Note that removing the
+root trust anchor is not possible.
+.TP
+.B dump\-cache \fIFILENAME\fP
+Dumps the entire cache to \fIFILENAME\fP\&. This file should not exist already,
+PowerDNS will refuse to overwrite it. While dumping, the recursor
+might not answer questions.
+.sp
+Typical PowerDNS Recursors run multiple threads, therefore you\(aqll see
+duplicate, different entries for the same domains. The negative cache is
+also dumped to the same file. The per\-thread positive and negative cache
+dumps are separated with an appropriate comment.
+.TP
+.B dump\-edns \fIFILENAME\fP
+Dumps the EDNS status to the filename mentioned. This file should not exist
+already, PowerDNS will refuse to overwrite it. While dumping, the recursor
+will not answer questions.
+.TP
+.B dump\-failedservers \fIFILENAME\fP
+Dump the contents of the failed server map to the \fIFILENAME\fP mentioned.
+This file should not exist already, PowerDNS will refuse to
+overwrite it otherwise. While dumping, the recursor will not answer
+questions.
+.TP
+.B dump\-non\-resolving \fIFILENAME\fP
+Dump the contents of the map of nameserver names that did not resolve to
+an address.  This file should not exist already, PowerDNS will
+refuse to overwrite it otherwise. While dumping, the recursor will
+not answer questions.
+.TP
+.B dump\-nsspeeds \fIFILENAME\fP
+Dumps the nameserver speed statistics to the \fIFILENAME\fP mentioned. This
+file should not exist already, PowerDNS will refuse to overwrite it. While
+dumping, the recursor will not answer questions. Statistics are kept per
+thread, and the dumps end up in the same file.
+.TP
+.B dump\-rpz \fIZONE NAME\fP \fIFILE NAME\fP
+Dumps the content of the RPZ zone named \fIZONE NAME\fP to the \fIFILENAME\fP
+mentioned. This file should not exist already, PowerDNS will refuse to
+overwrite it otherwise. While dumping, the recursor will not answer
+questions.
+.TP
+.B dump\-throttlemap \fIFILENAME\fP
+Dump the contents of the throttle map to the \fIFILENAME\fP mentioned.
+This file should not exist already, PowerDNS will refuse to
+overwrite it otherwise. While dumping, the recursor will not answer
+questions.
+.TP
+.B get \fISTATISTIC\fP [\fISTATISTIC\fP]...
+Retrieve a statistic. For items that can be queried, see
+\&../metrics
+.TP
+.B get\-all
+Retrieve all known statistics.
+.TP
+.B get\-dont\-throttle\-names
+Get the list of names that are not allowed to be throttled.
+.TP
+.B get\-dont\-throttle\-netmasks
+Get the list of netmasks that are not allowed to be throttled.
+.TP
+.B get\-ntas
+Get a list of the currently configured Negative Trust Anchors.
+.TP
+.B get\-tas
+Get a list of the currently configured Trust Anchors.
+.TP
+.B get\-parameter \fIKEY\fP [\fIKEY\fP]...
+Retrieves the specified configuration parameter(s).
+.TP
+.B get\-qtypelist
+Retrieves QType statistics. Queries from cache aren\(aqt being counted yet.
+.TP
+.B hash\-password [\fIWORK\-FACTOR\fP]
+Asks for a password then returns the hashed and salted version,
+to use as a webserver password or API key. This command does
+not contact the recursor but does the hashing inside rec_control.
+An optional scrypt work factor can be specified, in power of two.
+The default is 1024.
+.TP
+.B help
+Shows a list of supported commands understood by the running
+\fBpdns_recursor\fP
+.TP
+.B ping
+Check if server is alive.
+.TP
+.B quit
+Request shutdown of the recursor, exiting the process while
+letting the OS clean up resources.
+.TP
+.B quit\-nicely
+Request nice shutdown of the recursor. This method allows all
+threads to finish their current work and releases resources before
+exiting. This is the preferred method to stop the recursor.
+.TP
+.B reload\-acls
+Reloads ACLs.
+.TP
+.B reload\-lua\-script [\fIFILENAME\fP]
+(Re)loads Lua script \fIFILENAME\fP\&. If \fIFILENAME\fP is empty, attempt to reload
+the currently loaded script. This replaces the script currently loaded.
+.TP
+.B reload\-lua\-config [\fIFILENAME\fP]
+(Re)loads Lua configuration \fIFILENAME\fP\&. If \fIFILENAME\fP is empty, attempt
+to reload the currently loaded file. Note that \fIFILENAME\fP will be fully
+executed, any settings changed at runtime that are not modified in this
+file, will still be active. Reloading RPZ, especially by AXFR, can take
+some time; during which the recursor will not answer questions.
+.TP
+.B reload\-zones
+Reload authoritative and forward zones. Retains current configuration in
+case of errors.
+.TP
+.B set\-carbon\-server \fICARBON SERVER\fP [\fICARBON OURNAME\fP]
+Set the carbon\-server setting to \fICARBON SERVER\fP\&. If \fICARBON OURNAME\fP is
+not empty, also set the carbon\-ourname setting to \fICARBON OURNAME\fP\&.
+.TP
+.B set\-dnssec\-log\-bogus \fISETTING\fP
+Set dnssec\-log\-bogus setting to \fISETTING\fP\&. Set to \(aqon\(aq or \(aqyes\(aq to log
+DNSSEC validation failures and to \(aqno\(aq or \(aqoff\(aq to disable logging these
+failures.
+.TP
+.B set\-ecs\-minimum\-ttl \fINUM\fP
+Set ecs\-minimum\-ttl\-override to \fINUM\fP\&.
+.TP
+.B set\-max\-cache\-entries \fINUM\fP
+Change the maximum number of entries in the DNS cache.  If reduced, the
+cache size will start shrinking to this number as part of the normal
+cache purging process, which might take a while.
+.TP
+.B set\-max\-packetcache\-entries \fINUM\fP
+Change the maximum number of entries in the packet cache.  If reduced, the
+cache size will start shrinking to this number as part of the normal
+cache purging process, which might take a while.
+.TP
+.B set\-minimum\-ttl \fINUM\fP
+Set minimum\-ttl\-override to \fINUM\fP\&.
+.TP
+.B set\-event\-trace\-enabled \fINUM\fP
+Set logging of event trace messages, 0 = disabled, 1 = protobuf, 2 = log file, 3 = both.
+.TP
+.B top\-queries
+Shows the top\-20 queries. Statistics are over the last
+\(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-pub\-queries
+Shows the top\-20 queries grouped by public suffix list. Statistics are over
+the last \(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-largeanswer\-remotes
+Shows the top\-20 remote hosts causing large answers. Statistics are over
+the last \(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-remotes
+Shows the top\-20 most active remote hosts. Statistics are over the last
+\(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-servfail\-queries
+Shows the top\-20 queries causing servfail responses. Statistics are over
+the last \(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-bogus\-queries
+Shows the top\-20 queries causing bogus responses. Statistics are over
+the last \(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-pub\-servfail\-queries
+Shows the top\-20 queries causing servfail responses grouped by public
+suffix list. Statistics are over the last \(aqstats\-ringbuffer\-entries\(aq
+queries.
+.TP
+.B top\-pub\-bogus\-queries
+Shows the top\-20 queries causing bogus responses grouped by public
+suffix list. Statistics are over the last \(aqstats\-ringbuffer\-entries\(aq
+queries.
+.TP
+.B top\-servfail\-remotes
+Shows the top\-20 most active remote hosts causing servfail responses.
+Statistics are over the last \(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-bogus\-remotes
+Shows the top\-20 most active remote hosts causing bogus responses.
+Statistics are over the last \(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B top\-timeouts
+Shows the top\-20 most active downstream timeout destinations.
+Statistics are over the last \(aqstats\-ringbuffer\-entries\(aq queries.
+.TP
+.B trace\-regex \fIREGEX\fP
+Emit resolution trace for matching queries. Empty regex to disable trace.
+.sp
+Queries matching this regular expression will generate voluminous tracing
+output. Be aware that matches from the packet cache will still not generate
+tracing. To unset the regex, pass \fBtrace\-regex\fP without a new regex.
+.sp
+The regular expression is matched against domain queries terminated with a
+dot. For example the regex \fB\(aqpowerdns.com$\(aq\fP will not match a query for
+\fB\(aqwww.powerdns.com\(aq\fP, since the attempted match will be with
+\fB\(aqwww.powerdns.com.\(aq\fP\&.
+.sp
+In addition, since this is a regular expression, to exclusively match
+queries for \fB\(aqwww.powerdns.com\(aq\fP, one should escape the dots:
+\fB\(aq^www\e.powerdns\e.com\e.$\(aq\fP\&.
+Note that the single quotes prevent
+further interpretation of the backslashes by the shell.
+.sp
+Multiple matches can be chained with the \fB|\fP operator. For example, to
+match all queries for Dutch (\fB\&.nl\fP) and German (\fB\&.de\fP) domain names, use:
+\fB\(aq\e.nl\e.$|\e.de\e.$\(aq\fP\&.
+.TP
+.B unload\-lua\-script
+Unloads Lua script if one was loaded.
+.TP
+.B version
+Report running version.
+.TP
+.B wipe\-cache \fIDOMAIN\fP [\fIDOMAIN\fP] [...]
+Wipe entries for \fIDOMAIN\fP (exact name match) from the cache. This is useful
+if, for example, an important server has a new IP address, but the TTL has
+not yet expired. Multiple domain names can be passed.
+\fIDOMAIN\fP can be suffixed with a \(aq$\(aq. to delete the whole tree from the
+cache. i.e. \(aqpowerdns.com$\(aq will remove all cached entries under and
+including the powerdns.com name.
+.sp
+\fBNote\fP: this command also wipes the negative cache.
+.sp
+\fBWarning\fP: Don\(aqt just wipe "www.somedomain.com", its NS records or CNAME
+target may still be undesired, so wipe "somedomain.com" as well.
+.TP
+.B wipe\-cache\-typed \fIqtype\fP \fIDOMAIN\fP [\fIDOMAIN\fP] [...]
+Same as wipe\-cache, but only wipe records of type \fIqtype\fP\&.
+.UNINDENT
+.SH SEE ALSO
+.sp
+\fBpdns_recursor(1)\fP
+.SH AUTHOR
+PowerDNS.COM BV
+.SH COPYRIGHT
+2001-2022, PowerDNS.COM BV
+.\" Generated by docutils manpage writer.
+.

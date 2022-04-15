@@ -1,0 +1,466 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Set to the user and host that builds PowerDNS */
+#undef BUILD_HOST
+
+/* Define to 1 if you have the `accept4' function. */
+#undef HAVE_ACCEPT4
+
+/* Define to 1 if you have the `arc4random' function. */
+#undef HAVE_ARC4RANDOM
+
+/* Defined if the requested minimum BOOST version is satisfied */
+#undef HAVE_BOOST
+
+/* Define to 1 if you have <boost/container/flat_set.hpp> */
+#undef HAVE_BOOST_CONTAINER_FLAT_SET_HPP
+
+/* Defined if the Boost context library is available */
+#undef HAVE_BOOST_CONTEXT
+
+/* Define to 1 if you have <boost/context/execution_context_v2.hpp> */
+#undef HAVE_BOOST_CONTEXT_EXECUTION_CONTEXT_V2_HPP
+
+/* Define to 1 if you have <boost/context/fcontext.hpp> */
+#undef HAVE_BOOST_CONTEXT_FCONTEXT_HPP
+
+/* Define to 1 if you have <boost/context/fiber.hpp> */
+#undef HAVE_BOOST_CONTEXT_FIBER_HPP
+
+/* Defined if the Boost filesystem library is available */
+#undef HAVE_BOOST_FILESYSTEM
+
+/* Define to 1 if you have <boost/filesystem/path.hpp> */
+#undef HAVE_BOOST_FILESYSTEM_PATH_HPP
+
+/* Defined if the Boost system library is available */
+#undef HAVE_BOOST_SYSTEM
+
+/* Define to 1 if you have <boost/system/error_code.hpp> */
+#undef HAVE_BOOST_SYSTEM_ERROR_CODE_HPP
+
+/* Define to 1 if you have <boost/test/unit_test.hpp> */
+#undef HAVE_BOOST_TEST_UNIT_TEST_HPP
+
+/* Defined if the Boost thread library is available */
+#undef HAVE_BOOST_THREAD
+
+/* Define to 1 if you have <boost/thread.hpp> */
+#undef HAVE_BOOST_THREAD_HPP
+
+/* Defined if the Boost unit_test_framework library is available */
+#undef HAVE_BOOST_UNIT_TEST_FRAMEWORK
+
+/* Define to 1 if you have clock_gettime */
+#undef HAVE_CLOCK_GETTIME
+
+/* Define to 1 if you have the `crypto_box_curve25519xchacha20poly1305_easy'
+   function. */
+#undef HAVE_CRYPTO_BOX_CURVE25519XCHACHA20POLY1305_EASY
+
+/* Define to 1 if you have the `crypto_box_easy_afternm' function. */
+#undef HAVE_CRYPTO_BOX_EASY_AFTERNM
+
+/* Define to 1 if you have the `CRYPTO_memcmp' function. */
+#undef HAVE_CRYPTO_MEMCMP
+
+/* Define to 1 if you have the `crypto_shorthash' function. */
+#undef HAVE_CRYPTO_SHORTHASH
+
+/* define if the compiler supports basic C++17 syntax */
+#undef HAVE_CXX17
+
+/* Define to 1 if you have the declaration of `NID_ED25519', and to 0 if you
+   don't. */
+#undef HAVE_DECL_NID_ED25519
+
+/* Define to 1 if you have the declaration of `NID_ED448', and to 0 if you
+   don't. */
+#undef HAVE_DECL_NID_ED448
+
+/* Define to 1 if you have the declaration of `NID_secp384r1', and to 0 if you
+   don't. */
+#undef HAVE_DECL_NID_SECP384R1
+
+/* Define to 1 if you have the declaration of `NID_X9_62_prime256v1', and to 0
+   if you don't. */
+#undef HAVE_DECL_NID_X9_62_PRIME256V1
+
+/* Define to 1 if you have the declaration of `snmp_select_info2', and to 0 if
+   you don't. */
+#undef HAVE_DECL_SNMP_SELECT_INFO2
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you enable DNS over TLS support */
+#undef HAVE_DNS_OVER_TLS
+
+/* Define to 1 if you have the `EVP_MD_CTX_free' function. */
+#undef HAVE_EVP_MD_CTX_FREE
+
+/* Define to 1 if you have the `EVP_MD_CTX_new' function. */
+#undef HAVE_EVP_MD_CTX_NEW
+
+/* Define to 1 if you have EVP_PKEY_CTX_set1_scrypt_salt */
+#undef HAVE_EVP_PKEY_CTX_SET1_SCRYPT_SALT
+
+/* Define if ASAN fiber annotation interface is available. */
+#undef HAVE_FIBER_SANITIZER
+
+/* Define to 1 if you have libfstrm */
+#undef HAVE_FSTRM
+
+/* Define to 1 if you have the `fstrm_tcp_writer_init' function. */
+#undef HAVE_FSTRM_TCP_WRITER_INIT
+
+/* Define to 1 if you have the `getcontext' function. */
+#undef HAVE_GETCONTEXT
+
+/* Define to 1 if you have the `getrandom' function. */
+#undef HAVE_GETRANDOM
+
+/* Define to 1 if you have the `gmtime_r' function. */
+#undef HAVE_GMTIME_R
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have libcap */
+#undef HAVE_LIBCAP
+
+/* Define to 1 if you have OpenSSL libcrypto */
+#undef HAVE_LIBCRYPTO
+
+/* define to 1 if OpenSSL ecdsa support is available. */
+#undef HAVE_LIBCRYPTO_ECDSA
+
+/* define to 1 if OpenSSL ed25519 support is available. */
+#undef HAVE_LIBCRYPTO_ED25519
+
+/* define to 1 if OpenSSL ed448 support is available. */
+#undef HAVE_LIBCRYPTO_ED448
+
+/* define to 1 if OpenSSL EDDSA support is available. */
+#undef HAVE_LIBCRYPTO_EDDSA
+
+/* Define to 1 if you have a functional curl library. */
+#undef HAVE_LIBCURL
+
+/* Define to 1 if you have libdecaf */
+#undef HAVE_LIBDECAF
+
+/* Define to 1 if you have libsodium */
+#undef HAVE_LIBSODIUM
+
+/* Define to 1 if you have OpenSSL libssl */
+#undef HAVE_LIBSSL
+
+/* Define to 1 if you have the `localtime_r' function. */
+#undef HAVE_LOCALTIME_R
+
+/* Define to 1 if you have lua */
+#undef HAVE_LUA
+
+/* Define to 1 if you have the `makecontext' function. */
+#undef HAVE_MAKECONTEXT
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define if using Net SNMP. */
+#undef HAVE_NET_SNMP
+
+/* Define to 1 if you have the `OCSP_basic_sign' function. */
+#undef HAVE_OCSP_BASIC_SIGN
+
+/* Define to 1 if you have the `OPENSSL_init_crypto' function. */
+#undef HAVE_OPENSSL_INIT_CRYPTO
+
+/* Define to 1 if you have pthread_getattr_np */
+#undef HAVE_PTHREAD_GETATTR_NP
+
+/* Define to 1 if you have pthread_get_stackaddr_np */
+#undef HAVE_PTHREAD_GET_STACKADDR_NP
+
+/* Define to 1 if you have pthread_get_stacksize_np */
+#undef HAVE_PTHREAD_GET_STACKSIZE_NP
+
+/* Define to 1 if you have the <pthread_np.h> header file. */
+#undef HAVE_PTHREAD_NP_H
+
+/* Define to 1 if you have pthread_setaffinity_np */
+#undef HAVE_PTHREAD_SETAFFINITY_NP
+
+/* 1-arg pthread_setname_np */
+#undef HAVE_PTHREAD_SETNAME_NP_1
+
+/* 2-arg pthread_setname_np */
+#undef HAVE_PTHREAD_SETNAME_NP_2
+
+/* 3-arg pthread_setname_np */
+#undef HAVE_PTHREAD_SETNAME_NP_3
+
+/* 2-arg pthread_set_name_np */
+#undef HAVE_PTHREAD_SET_NAME_NP_2
+
+/* 2-arg void pthread_set_name_np */
+#undef HAVE_PTHREAD_SET_NAME_NP_2_VOID
+
+/* Define to 1 if you have the `randombytes_stir' function. */
+#undef HAVE_RANDOMBYTES_STIR
+
+/* Define to 1 if you have the `RAND_bytes' function. */
+#undef HAVE_RAND_BYTES
+
+/* Define to 1 if you have the `RAND_pseudo_bytes' function. */
+#undef HAVE_RAND_PSEUDO_BYTES
+
+/* Define to 1 if you have the `recvmmsg' function. */
+#undef HAVE_RECVMMSG
+
+/* Define to 1 if you have the `RSA_get0_key' function. */
+#undef HAVE_RSA_GET0_KEY
+
+/* Define to 1 if you have the <sanitizer/common_interface_defs.h> header
+   file. */
+#undef HAVE_SANITIZER_COMMON_INTERFACE_DEFS_H
+
+/* Define to 1 if __sanitizer_finish_switch_fiber takes only a pointer */
+#undef HAVE_SANITIZER_FINISH_SWITCH_FIBER_SINGLE_PTR
+
+/* Define to 1 if __sanitizer_finish_switch_fiber takes three pointers */
+#undef HAVE_SANITIZER_FINISH_SWITCH_FIBER_THREE_PTRS
+
+/* Define to 1 if you have the `sendmmsg' function. */
+#undef HAVE_SENDMMSG
+
+/* define to 1 if snmp_select_info2 is available. */
+#undef HAVE_SNMP_SELECT_INFO2
+
+/* Define to 1 if you have the `sodium_memcmp' function. */
+#undef HAVE_SODIUM_MEMCMP
+
+/* Define to 1 if you have the `SSL_CTX_get0_privatekey' function. */
+#undef HAVE_SSL_CTX_GET0_PRIVATEKEY
+
+/* Define to 1 if you have the `SSL_CTX_set_alpn_protos' function. */
+#undef HAVE_SSL_CTX_SET_ALPN_PROTOS
+
+/* Define to 1 if you have the `SSL_CTX_set_alpn_select_cb' function. */
+#undef HAVE_SSL_CTX_SET_ALPN_SELECT_CB
+
+/* Define to 1 if you have the `SSL_CTX_set_ciphersuites' function. */
+#undef HAVE_SSL_CTX_SET_CIPHERSUITES
+
+/* Define to 1 if you have the `SSL_CTX_set_keylog_callback' function. */
+#undef HAVE_SSL_CTX_SET_KEYLOG_CALLBACK
+
+/* Define to 1 if you have the `SSL_CTX_set_min_proto_version' function. */
+#undef HAVE_SSL_CTX_SET_MIN_PROTO_VERSION
+
+/* Define to 1 if you have the `SSL_CTX_set_next_proto_select_cb' function. */
+#undef HAVE_SSL_CTX_SET_NEXT_PROTO_SELECT_CB
+
+/* Define to 1 if you have the `SSL_CTX_set_num_tickets' function. */
+#undef HAVE_SSL_CTX_SET_NUM_TICKETS
+
+/* Define to 1 if you have the `SSL_get0_alpn_selected' function. */
+#undef HAVE_SSL_GET0_ALPN_SELECTED
+
+/* Define to 1 if you have the `SSL_get0_next_proto_negotiated' function. */
+#undef HAVE_SSL_GET0_NEXT_PROTO_NEGOTIATED
+
+/* Define to 1 if you have the `SSL_set_hostflags' function. */
+#undef HAVE_SSL_SET_HOSTFLAGS
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the `strcasestr' function. */
+#undef HAVE_STRCASESTR
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the `swapcontext' function. */
+#undef HAVE_SWAPCONTEXT
+
+/* Systemd available and enabled */
+#undef HAVE_SYSTEMD
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to 1 if you have the <valgrind/valgrind.h> header file. */
+#undef HAVE_VALGRIND_VALGRIND_H
+
+/* Defined if libcurl supports AsynchDNS */
+#undef LIBCURL_FEATURE_ASYNCHDNS
+
+/* Defined if libcurl supports IDN */
+#undef LIBCURL_FEATURE_IDN
+
+/* Defined if libcurl supports IPv6 */
+#undef LIBCURL_FEATURE_IPV6
+
+/* Defined if libcurl supports KRB4 */
+#undef LIBCURL_FEATURE_KRB4
+
+/* Defined if libcurl supports libz */
+#undef LIBCURL_FEATURE_LIBZ
+
+/* Defined if libcurl supports NTLM */
+#undef LIBCURL_FEATURE_NTLM
+
+/* Defined if libcurl supports SSL */
+#undef LIBCURL_FEATURE_SSL
+
+/* Defined if libcurl supports SSPI */
+#undef LIBCURL_FEATURE_SSPI
+
+/* Defined if libcurl supports DICT */
+#undef LIBCURL_PROTOCOL_DICT
+
+/* Defined if libcurl supports FILE */
+#undef LIBCURL_PROTOCOL_FILE
+
+/* Defined if libcurl supports FTP */
+#undef LIBCURL_PROTOCOL_FTP
+
+/* Defined if libcurl supports FTPS */
+#undef LIBCURL_PROTOCOL_FTPS
+
+/* Defined if libcurl supports HTTP */
+#undef LIBCURL_PROTOCOL_HTTP
+
+/* Defined if libcurl supports HTTPS */
+#undef LIBCURL_PROTOCOL_HTTPS
+
+/* Defined if libcurl supports IMAP */
+#undef LIBCURL_PROTOCOL_IMAP
+
+/* Defined if libcurl supports LDAP */
+#undef LIBCURL_PROTOCOL_LDAP
+
+/* Defined if libcurl supports POP3 */
+#undef LIBCURL_PROTOCOL_POP3
+
+/* Defined if libcurl supports RTSP */
+#undef LIBCURL_PROTOCOL_RTSP
+
+/* Defined if libcurl supports SMTP */
+#undef LIBCURL_PROTOCOL_SMTP
+
+/* Defined if libcurl supports TELNET */
+#undef LIBCURL_PROTOCOL_TELNET
+
+/* Defined if libcurl supports TFTP */
+#undef LIBCURL_PROTOCOL_TFTP
+
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
+#undef LT_OBJDIR
+
+/* Define to 1 if you want to benefit from malloc trace */
+#undef MALLOC_TRACE
+
+/* If your OS is so broken that it needs an additional prototype */
+#undef NEED_INET_NTOP_PROTO
+
+/* If POSIX typedefs need to be defined */
+#undef NEED_POSIX_TYPEDEF
+
+/* Define to 1 if nod is enabled */
+#undef NOD_ENABLED
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* pdns-recursor configure arguments */
+#undef PDNS_CONFIG_ARGS
+
+/* Define if using Valgrind. */
+#undef PDNS_USE_VALGRIND
+
+/* This is the PowerDNS Recursor */
+#undef RECURSOR
+
+/* Define to 1 for reproducible builds */
+#undef REPRODUCIBLE
+
+/* The number of bytes in type time_t */
+#undef SIZEOF_TIME_T
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Enable extensions on AIX 3, Interix.  */
+#ifndef _ALL_SOURCE
+# undef _ALL_SOURCE
+#endif
+/* Enable GNU extensions on systems that have them.  */
+#ifndef _GNU_SOURCE
+# undef _GNU_SOURCE
+#endif
+/* Enable threading extensions on Solaris.  */
+#ifndef _POSIX_PTHREAD_SEMANTICS
+# undef _POSIX_PTHREAD_SEMANTICS
+#endif
+/* Enable extensions on HP NonStop.  */
+#ifndef _TANDEM_SOURCE
+# undef _TANDEM_SOURCE
+#endif
+/* Enable general extensions on Solaris.  */
+#ifndef __EXTENSIONS__
+# undef __EXTENSIONS__
+#endif
+
+
+/* Define to 1 if verbose logging is enabled */
+#undef VERBOSELOG
+
+/* Version number of package */
+#undef VERSION
+
+/* Define to 1 if on MINIX. */
+#undef _MINIX
+
+/* Define to 2 if the system does not provide POSIX.1 features except with
+   this defined. */
+#undef _POSIX_1_SOURCE
+
+/* Define to 1 if you need to in order for `stat' and other things to work. */
+#undef _POSIX_SOURCE
+
+/* Define curl_free() as free() if our version of curl lacks curl_free. */
+#undef curl_free

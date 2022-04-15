@@ -4,7 +4,7 @@ Priority: optional
 Standards-Version: 4.5.1
 Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
 Build-Conflicts: libboost-context-dev [mips mipsel]
-Build-Depends: debhelper-compat (= 13),
+Build-Depends: debhelper,
                libboost-context-dev [amd64 arm64 armel armhf i386 ppc64el],
                libboost-dev,
                libboost-program-options-dev,

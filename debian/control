@@ -2,9 +2,7 @@ Source: pdns-recursor
 Section: net
 Priority: optional
 Standards-Version: 4.5.1
-Maintainer: pdns-recursor packagers <pdns-recursor@packages.debian.org>
-Uploaders: Chris Hofstaedtler <zeha@debian.org>,
-           Marc Haber <mh+debian-packages@zugschlus.de>
+Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
 Build-Conflicts: libboost-context-dev [mips mipsel]
 Build-Depends: debhelper-compat (= 13),
                libboost-context-dev [amd64 arm64 armel armhf i386 ppc64el],
